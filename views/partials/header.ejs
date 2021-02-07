@@ -51,7 +51,7 @@
             <a class="nav-link" href="/aboutMe"style="color: wheat">About Me</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="/result" method="GET">
+        <form class="form-inline my-2 my-lg-0" id="forms"  action="/result" method="GET">
           <input
             class="form-control mr-sm-2"
             type="text"
@@ -63,3 +63,10 @@
         </form>
       </div>
     </nav>
+    <script>document.getElementById('movieName').addEventListener('keypress', function(event) {
+      if (event.keyCode == 13) {
+        document.getElementById("forms").submit();
+		return false;
+      }
+     });
+     </script>

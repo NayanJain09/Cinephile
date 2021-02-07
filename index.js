@@ -1,7 +1,9 @@
+console.clear()
 const express = require('express');
 const request = require('request');
 const session = require('express-session')
 const dotenv = require('dotenv');
+const axios = require('axios')
 dotenv.config();
 const app = express();
 app.set('view engine','ejs'); 
@@ -24,24 +26,22 @@ app.get('/',(req,res)=>{
     res.render('homepage');
 })
 
-app.get('/result',(req,res)=>{
-    console.log(req.query.movieName);
-    const url = `http://www.omdbapi.com/?apikey=ecef8fbc&s=${req.query.movieName}`
-    request(url,function(err,response,body){
-        if(err)res.send("error");
-        if(res.statusCode===200){
-            const data = JSON.parse(body);
-            //console.log(data);
-            //res.send(data);
-            if(data.Response==='False')
-              res.render('movieNotFound')
-            else
-             res.render('result',{movieData : data});
-        }    
-        else{
-            res.send("error");
+
+
+app.get('/result',async (req,res)=>{
+    try {
+        const url = `http://www.omdbapi.com/?apikey=ecef8fbc&s=${req.query.movieName}`
+        const {data} = await axios.get(url);
+        //console.log(data);
+        if (data.Search.length === 0) {
+            res.render('movieNotFound');
+        }else {
+            res.render('result',{movieData : data.Search});
         }
-    })
+    } catch(e) {
+       // console.log(e.message);
+        res.render('movieNotFound');
+    }
 })
 
 app.get('/result/:id',(req,res)=>{

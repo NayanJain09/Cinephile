@@ -4,11 +4,13 @@
   "description": "Content on Movies and TV shows",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Nayan Jain",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",

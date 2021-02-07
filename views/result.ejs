@@ -2,19 +2,19 @@
  <br><br>   
  <h3 style="color: wheat; padding-left: 30px;">Results :</h3>
     <br><br>
-    <div class="row">
+    <div class="row" style="margin-left: 11px;">
    
-        <%movieData['Search'].forEach(function(movie){ %>
+        <%movieData.forEach(function(movie){ %>
           <div
           class="card px-2 py-2 border-dark mb-3"
           style="
             width: 20rem;
             margin-bottom: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
+            margin-left: 8px;
+            margin-right: 8px;
           "
         >
-                <img src="<%=movie.Poster%>" class="card-img-top" alt="<%=movie.Title%>">
+                <img src="<%=movie.Poster%>" class="card-img-top" style='height: 300px; object-fit: cover;' onerror="this.onerror=null;this.src='/images/error2.jpg'">
                 <div class="card-body">
                   <h5 class="card-title"><%=movie.Title%></h5>
                   <h6 class="card-subtitle mb-2 text-muted">Release Year : <%=movie.Released%></h6>
