@@ -1,0 +1,27 @@
+ <%- include("./partials/header")  %>
+ <br><br>   
+ <h3 style="color: wheat; padding-left: 30px;">Results :</h3>
+    <br><br>
+    <div class="row">
+   
+        <%movieData['Search'].forEach(function(movie){ %>
+          <div
+          class="card px-2 py-2 border-dark mb-3"
+          style="
+            width: 20rem;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+          "
+        >
+                <img src="<%=movie.Poster%>" class="card-img-top" alt="<%=movie.Title%>">
+                <div class="card-body">
+                  <h5 class="card-title"><%=movie.Title%></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Release Year : <%=movie.Released%></h6>
+                  <a href="/result/<%=movie.imdbID%>" class="btn btn-primary" >Know More</a>
+                </div>
+              </div>
+            
+        <%})%>
+    </div>
+    <%- include("./partials/footer")  %>

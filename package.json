@@ -1,0 +1,22 @@
+{
+  "name": "Cinephile",
+  "version": "1.0.0",
+  "description": "Content on Movies and TV shows",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js"
+  },
+  "author": "Nayan Jain",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2"
+  },
+  "engines": {
+    "node": "15.6.0"
+  }
+}
